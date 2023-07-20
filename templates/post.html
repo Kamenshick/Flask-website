@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}{{all_news[news_id][1][0]}}{% endblock %}
+{% block content %}
+<main id="news-anim">
+  <div class="banner">
+    <h1>Hot news</h1>
+    <span id="actual">Trending....</span>
+  </div>
+  <div class="news-paper">
+    <div class="news">
+      {% for i in all_news%}
+      <a href="/news/{{i[0]}}"><div class="news-table" id="{{i[0]}}">
+        <img class="img-table" src="{{i[1][1]}}" alt="">
+        <div class="text-table">
+          <div class="title-table">{{i[1][0]}}<img src="/static/img/clarity_bookmark-solid.svg" alt=""></div>
+          {% if i[1][2]|length  > 200: %}
+            <div class="p-table">{{i[1][2][:200] + '...'}}</div>
+          {% else %}
+            <div class="p-table">{{i[1][2]}}</div>
+          {% endif %}
+          <div class="author-table">{{i[2]}}</div>
+          <div class="date-table"><time datetime="{{i[3]}}">{{i[3]}}</time></div>
+        </div>
+      </div></a>
+      {% endfor %}
+    </div>
+    <div class="news-text">
+      <div class="news-arcticle">
+        <img class="img-text-news" src="{{all_news[news_id][1][1]}}" alt="">
+        <div class="title-text">{{all_news[news_id][1][0]}}</div>
+        <div class="text-news">
+          <article>
+            {{all_news[news_id][1][2]}}
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

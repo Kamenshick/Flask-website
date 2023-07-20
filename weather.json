@@ -1,0 +1,8 @@
+{
+  "Clear" : ["Ясно","sun.png","clear.jpg"],
+  "Clouds" : ["Облачно ","cloudy.png","cloudy.jpg"],
+  "Rain" : ["Пасмурно","rainy.png","rainy.jpg"],
+  "Thunderstorm" : ["Гроза","lightning.png","rainy.jpg"]
+}
+
+

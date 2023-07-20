@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>{% block title %} {% endblock %} - Hot news</title>
+</head>
+<body>
+    <div class="container">
+      <header>
+        <img class="menu-img" src="https://www.dictionary.com/e/wp-content/uploads/2018/04/neko.jpg" alt="">
+        <nav>
+          <ul class="menu">
+            <a href="{{url_for('get_weathers')}}"><li><img class="menu-img-li" src="/static/img/Frame.svg" alt="">Weather</li></a>
+            <a href="{{url_for('index')}}"><li><img class="menu-img-li" src="/static/img/Group.svg" alt="">News</li></a>
+            <a href="{{url_for('about')}}"><li><img class="menu-img-li" src="/static/img/Group(1).svg" alt="">About</li></a>
+            <a href="{{url_for('map')}}"><li><img class="menu-img-li" src="/static/img/Vector.svg" alt="">Maps</li></a>
+          </ul>
+        </nav>
+      </header>
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Weather{% endblock %}
+{% block content %}
+    <main>
+      <div class="weather-container">
+        <div class="animated-container">
+          <h1>Weather</h1>
+          <div class="weather-table" style="background-image: url('/static/img/icon/background/{{img_w[2]}}')">
+            <div class="table-content">
+              <div id="town">{{city}}</div>
+              <div class="weather-info">
+                <div class="main-fact">
+                  <div class="temp">
+                    <div id="tempriche"><div class="temperature">+{{info[0]}}°</div><img id = "weather-visible" src="/static/img/weather/{{img_w[1]}}" alt=""></div>
+                  </div>
+                  <div class="feels">
+                    <div class="main-feel">
+                      <div idf="main-weather">{{img_w[0]}}</div>
+                      <div idf="feel-weather"><span id="feels-ont">Ощущается как </span><b>+{{info[1]}}°</b></div>
+                    </div>
+                  </div>
+                </div>
+                <hr id="line-card">
+                <div class="other-fact">
+                  <div class="speed-wind"><div class="other-image" id="sw"></div> {{info[2]}} м/с, С</div>
+                  <div class="humidity"><div class="other-image" id="hum"></div>{{info[3]}} %</div>
+                  <div class="wind-direction"><div class="other-image" id="wd"></div>{{info[4]}} мм рт. ст.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form action="/weather" method="POST">
+            <div class="form-cont">
+              <input class="button" type="submit" value="Узнать погоду">
+              <select id="city" name="city-c">
+                <option value="" hidden disabled selected>Выбрать</option>
+                {% for i in town%}
+                <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+  </main>
+{% endblock %}
+
